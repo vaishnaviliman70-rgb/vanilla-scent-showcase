@@ -35,7 +35,7 @@ const products = [
   { name: "REGAL (100ML)", img: regal, tags: ["OUD", "UNISEX", "PARFUM"], price: "₹1,499" },
   { name: "NOBLE (100ML)", img: noble, tags: ["CITRUS", "UNISEX", "PARFUM"], price: "₹1,499" },
   { name: "ORION (100ML)", img: orion, tags: ["FRESH", "UNISEX", "PARFUM"], price: "₹1,499" },
-  { name: "VANILLA (100ML)", img: vanilla, tags: ["VANILLA", "UNISEX", "PARFUM"], price: "₹1,499", isNew: true },
+  { name: "VANILLA (100ML)", img: vanilla, tags: ["VANILLA", "UNISEX", "PARFUM"], price: "₹3,000", isNew: true },
 ];
 
 const bundle = [
