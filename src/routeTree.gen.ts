@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollectionsShopAllRouteImport } from './routes/collections/shop-all'
+import { Route as PagesBuildYourOwnBundleRouteImport } from './routes/pages/build-your-own-bundle'
+import { Route as PagesKnowSarkarRouteImport } from './routes/pages/know-sarkar'
+import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollectionsShopAllRoute = CollectionsShopAllRouteImport.update({
+  id: '/collections/shop-all',
+  path: '/collections/shop-all',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesBuildYourOwnBundleRoute = PagesBuildYourOwnBundleRouteImport.update({
+  id: '/pages/build-your-own-bundle',
+  path: '/pages/build-your-own-bundle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesKnowSarkarRoute = PagesKnowSarkarRouteImport.update({
+  id: '/pages/know-sarkar',
+  path: '/pages/know-sarkar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/collections/shop-all': typeof CollectionsShopAllRoute
+  '/pages/build-your-own-bundle': typeof PagesBuildYourOwnBundleRoute
+  '/pages/know-sarkar': typeof PagesKnowSarkarRoute
+  '/products/$slug': typeof ProductsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/collections/shop-all': typeof CollectionsShopAllRoute
+  '/pages/build-your-own-bundle': typeof PagesBuildYourOwnBundleRoute
+  '/pages/know-sarkar': typeof PagesKnowSarkarRoute
+  '/products/$slug': typeof ProductsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/collections/shop-all': typeof CollectionsShopAllRoute
+  '/pages/build-your-own-bundle': typeof PagesBuildYourOwnBundleRoute
+  '/pages/know-sarkar': typeof PagesKnowSarkarRoute
+  '/products/$slug': typeof ProductsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/collections/shop-all'
+    | '/pages/build-your-own-bundle'
+    | '/pages/know-sarkar'
+    | '/products/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/collections/shop-all'
+    | '/pages/build-your-own-bundle'
+    | '/pages/know-sarkar'
+    | '/products/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/collections/shop-all'
+    | '/pages/build-your-own-bundle'
+    | '/pages/know-sarkar'
+    | '/products/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CollectionsShopAllRoute: typeof CollectionsShopAllRoute
+  PagesBuildYourOwnBundleRoute: typeof PagesBuildYourOwnBundleRoute
+  PagesKnowSarkarRoute: typeof PagesKnowSarkarRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collections/shop-all': {
+      id: '/collections/shop-all'
+      path: '/collections/shop-all'
+      fullPath: '/collections/shop-all'
+      preLoaderRoute: typeof CollectionsShopAllRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages/build-your-own-bundle': {
+      id: '/pages/build-your-own-bundle'
+      path: '/pages/build-your-own-bundle'
+      fullPath: '/pages/build-your-own-bundle'
+      preLoaderRoute: typeof PagesBuildYourOwnBundleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages/know-sarkar': {
+      id: '/pages/know-sarkar'
+      path: '/pages/know-sarkar'
+      fullPath: '/pages/know-sarkar'
+      preLoaderRoute: typeof PagesKnowSarkarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CollectionsShopAllRoute: CollectionsShopAllRoute,
+  PagesBuildYourOwnBundleRoute: PagesBuildYourOwnBundleRoute,
+  PagesKnowSarkarRoute: PagesKnowSarkarRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
